@@ -14,3 +14,13 @@ const formatValue = (
 
 
 
+const getLength = (input: string | any[]): number => {
+  if(typeof input === "string"){
+
+      return input.length;
+  }else if(Array.isArray(input)){
+      return input.length;
+  } else {
+      return 0;
+  }
+}
