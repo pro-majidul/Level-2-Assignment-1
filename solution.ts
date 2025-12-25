@@ -58,3 +58,16 @@ const filterByRating = (
 const filterActiveUsers = (value: { id: number, name: string, email: string, isActive: boolean }[]): { id: number, name: string, email: string, isActive: boolean }[] => {
     return value.filter(val => val.isActive === true)
 }
+
+
+
+interface Book {
+    title: string;
+    author: string;
+    publishedYear: number;
+    isAvailable: boolean;
+}
+
+const printBookDetails = (value: Book): void => {
+    console.log(`Title: ${value.title}, Author: ${value.author}, Published: ${value.publishedYear}, Available: ${value.isAvailable}`)
+}
