@@ -38,3 +38,18 @@ class Person {
         return ` 'Name: ${this.name}, Age: ${this.age}';`;
     }
 }
+
+
+const filterByRating = (
+  movies: { title: string; rating: number }[]
+): { title: string; rating: number }[] => {
+  const highRatedMovies = movies.filter((movie) => {
+    if (movie.rating > 5 || movie.rating < 0) {
+      return false;
+    }
+    return movie.rating >= 4.5;
+  });
+  return highRatedMovies;
+
+ 
+};
