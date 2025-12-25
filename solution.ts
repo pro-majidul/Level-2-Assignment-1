@@ -53,3 +53,8 @@ const filterByRating = (
 
  
 };
+
+
+const filterActiveUsers = (value: { id: number, name: string, email: string, isActive: boolean }[]): { id: number, name: string, email: string, isActive: boolean }[] => {
+    return value.filter(val => val.isActive === true)
+}
