@@ -11,9 +11,6 @@ const formatValue = (
 };
 
 
-
-
-
 const getLength = (input: string | any[]): number => {
   if(typeof input === "string"){
 
@@ -24,8 +21,6 @@ const getLength = (input: string | any[]): number => {
       return 0;
   }
 }
-
-
 
 class Person {
     name: string;  
@@ -59,8 +54,6 @@ const filterActiveUsers = (value: { id: number, name: string, email: string, isA
     return value.filter(val => val.isActive === true)
 }
 
-
-
 interface Book {
     title: string;
     author: string;
@@ -71,3 +64,30 @@ interface Book {
 const printBookDetails = (value: Book): void => {
     console.log(`Title: ${value.title}, Author: ${value.author}, Published: ${value.publishedYear}, Available: ${value.isAvailable}`)
 }
+
+
+const getUniqueValues = (arr1: number[], arr2: number[]): number[] => {
+  const data = new Set([...arr1, ...arr2]);
+  return [...data];
+};
+
+
+
+type PriceNumber = {
+  name: string;
+  price: number;
+  quantity: number;
+  discount?: number;
+};
+const calculateTotalPrice = (value: PriceNumber[]) => {
+  const finaltaka = value.map((val) =>
+    val.discount
+      ? val.price * val.quantity -
+        val.price * val.quantity * (val.discount / 100)
+      : val.price * val.quantity
+  );
+  const grandtotal = finaltaka.reduce((accumulator, currentValue) => {
+    return accumulator + currentValue;
+  }, 0);
+  return grandtotal;
+};
